@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Appointments</h1>
+
+<%= turbo_frame_tag "table" do %>
+  <div><%= paginate @appointments %></div>
+  <table>
+    <thead>
+      <tr>
+        <th id="appointment-time" scope="col">
+          <span> Appointment time </span>
+        </th>
+        <th id="appointment-doctor" scope="col">
+          <span>Doctor</span>
+        </th>
+        <th id="appointment-patient" scope="col">
+          <span>Patient</span>
+        </th>
+        <th id="appointment-price" scope="col">
+          <span>Price (in PLN)</span>
+        </th>
+        <th id="appointment-actions" scope="col">
+          <span>Actions</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'index_item', collection: @appointments, as: :appointment %>
+    </tbody>
+  </table>
+<% end %>  
+ 

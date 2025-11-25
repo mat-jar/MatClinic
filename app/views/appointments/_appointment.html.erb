@@ -1,0 +1,27 @@
+<div id="<%= dom_id appointment %>">
+  <p>
+    <strong>Date:</strong>
+    <%= appointment.date %>
+  </p>
+
+  <p>
+    <strong>Time slot:</strong>
+    <%= appointment.time_slot %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= appointment.price %>
+  </p>
+
+  <p>
+    <strong>Patient:</strong>
+    <%= appointment.patient.full_name %>
+  </p>
+
+  <p>
+    <strong>Doctor:</strong>
+    <%= appointment.doctor.full_name %>
+  </p>
+
+</div>

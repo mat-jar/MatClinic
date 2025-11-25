@@ -1,0 +1,44 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Patients</h1>
+<%= button_to "New patient", new_patient_path, method: :get %>
+
+<%= render partial: 'search' %>
+
+<%= turbo_frame_tag "table" do %>
+  <div><%= paginate @patients %></div>
+  <table>
+    <thead>
+      <tr>
+        <th id="patient-name" scope="col">
+          <span>
+            Patient name
+            <%= sort_link(@q, :last_name, default_order: :asc, class: "btn btn-light btn-sm") do %>
+              <span></span>
+            <% end %>
+          </span>
+        </th>
+        <th id="patient-gender" scope="col">
+          <span>Gender</span>
+        </th>
+        <th id="patient-birth-date" scope="col">
+        <span>
+          Birth date
+          <%= sort_link(@q, :birth_date, default_order: :asc, class: "btn btn-light btn-sm") do %>
+            <span></span>
+          <% end %>
+        </span>
+        </th>
+        <th id="patient-appointments" scope="col">
+            <span>Number of appointments</span>
+        </th>
+        <th id="patient-acctions" scope="col">
+          <span>Actions</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'index_item', collection: @patients, as: :patient %>
+    </tbody>
+  </table>
+<% end %>  
