@@ -7,6 +7,8 @@ class Appointment < ApplicationRecord
     "14:00","14:20","14:40","15:00","15:20","15:40"].map(&:to_sym)
 
   validates :date, :time_slot, :price,  presence: true
+  validates :date, comparison: { greater_than_or_equal_to: Date.today }
+  validates :price, comparison: { greater_than: 0 }
   validate :date_cannot_be_at_the_weekend
   validates :time_slot, uniqueness: { scope: [:patient_id, :date], message: "is invalid. A patient cannot have two appointments at the same time" }
   validates :time_slot, uniqueness: { scope: [:doctor_id, :date], message: "is invalid. A doctor cannot have two appointments at the same time" }

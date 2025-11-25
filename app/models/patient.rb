@@ -2,7 +2,7 @@ class Patient < ApplicationRecord
     has_many :appointments, dependent: :destroy
     
     enum gender: { female: 'female', male: 'male'}
-    before_save :upcase_first_name, :upcase_last_name, :upcase_city
+    #before_save :upcase_first_name, :upcase_last_name, :upcase_city
 
     validates :first_name, :last_name, :gender, :birth_date, :pesel, :city, presence: true
     validates :birth_date, comparison: { less_than_or_equal_to: Date.today, message: "Birth date cannot be greater than #{Date.today} (today)" }
