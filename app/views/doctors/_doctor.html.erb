@@ -9,4 +9,10 @@
     <%= doctor.last_name %>
   </p>
 
+  <p>
+    <strong>Number of appointments:</strong>
+    <%= count = doctor.appointments.count
+        count == 0 ? count : (link_to doctor.appointments.count, appointments_path(doctor_id: doctor.id)) %>
+  </p>
+
 </div>

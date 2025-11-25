@@ -6,8 +6,8 @@
         <%= count = patient.appointments.count
         count == 0 ? count : (link_to patient.appointments.count, appointments_path(patient_id: patient.id), data: { turbo: "false" }) %>
     </td>
-    <td class="patient-btns">
-        <%= link_to "Show this patient", patient, data: { turbo: "false" } %>
-        <%= new_appointment_button(patient) %>
+    <td class="table-btns">
+        <%= link_to "Show this patient", patient, data: { turbo: "false" }, class: "btn btn-secondary btn-sm" %>
+        <%= new_appointment_button(patient, css_class: "btn btn-secondary btn-sm") %>
     </td>
 </tr>

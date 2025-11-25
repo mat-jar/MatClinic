@@ -1,0 +1,81 @@
+.bg-dark-gray{
+  background-color: #3f3f3f;
+}
+
+.bg-light-gray{
+  background-color: #dadada;
+}
+
+.table-hover tbody tr:hover td {
+  background: #c9c8c8;
+}
+
+.patient-full-name {
+  font-weight: bold;
+}
+
+.patient-appointments {
+  font-size: 1.25rem;
+}
+
+.table-btns {
+  display:flex;
+  justify-content:space-around;
+}
+
+.form-row {
+  display:flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  input[type=radio] {
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.form-field {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  .text-primary {
+    color: #007297 !important;
+  }
+
+  h1 {
+    color: #003bb3;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+}
+
+.logo {
+  width: 576px;
+  height: 200px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.title {
+  h1 {
+  letter-spacing: 10px;
+  }
+}
+
+/* variables */
+$primary-color: #ff9999;
+$light-gray: #f8f9fa;
+$dark-gray: #5a6877;
+$black: #2e353d;
+$light-red: #ffcccc;
+
+

@@ -22,17 +22,17 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/1/edit
   def edit
+    @patient_id = params[:patient_id]
   end
 
   # POST /appointments or /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
-    @patient_id = appointment_params[:patient_id]
-
+  
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to appointment_url(@appointment), notice: "Appointment was successfully created." }
-        format.json { render :show, status: :created, location: @appointment }
+        format.html { redirect_to appointments_url, notice: "Appointment was successfully created." }
+        format.json { render :index, status: :created, location: @appointment }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
@@ -44,8 +44,8 @@ class AppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
-        format.html { redirect_to appointment_url(@appointment), notice: "Appointment was successfully updated." }
-        format.json { render :show, status: :ok, location: @appointment }
+        format.html { redirect_to appointments_url, notice: "Appointment was successfully updated." }
+        format.json { render :index, status: :ok, location: @appointment }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }

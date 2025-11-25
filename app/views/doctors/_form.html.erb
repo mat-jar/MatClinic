@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
+  <div class="form-row">
+    <%= form.label :first_name, class: "form-field" %>
     <%= form.text_field :first_name %>
   </div>
 
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
+  <div class="form-row">
+    <%= form.label :last_name, class: "form-field" %>
     <%= form.text_field :last_name %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-secondary" %>
   </div>
 <% end %>

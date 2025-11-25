@@ -1,5 +1,5 @@
 class Patient < ApplicationRecord
-    has_many :appointments
+    has_many :appointments, dependent: :destroy
     
     enum gender: { female: 'female', male: 'male'}
     before_save :upcase_first_name, :upcase_last_name, :upcase_city
@@ -15,7 +15,7 @@ class Patient < ApplicationRecord
     end
 
     def full_name
-        "#{first_name.capitalize} #{last_name.capitalize}"
+        "#{first_name.capitalize} #{last_name}"
     end
 
     def upcase_first_name

@@ -3,9 +3,8 @@
     <td class="appointment-details"><%= appointment.doctor.full_name  %></td>
     <td class="appointment-details"><%= appointment.patient.full_name %></td>
     <td class="appointment-details"><%= appointment.price %></td>
-    <td class="appointment-btns">
-        <%= link_to "Edit this appointment", edit_appointment_path(appointment), data: { turbo: "false" } %>
-        <%= button_to "Destroy this appointment", appointment, method: :delete %>
+    <td class="table-btns">
+        <%= edit_appointment_button(appointment, appointment.patient, css_class: "btn-secondary btn-sm") %>
+        <%= button_to "Destroy this appointment", appointment, method: :delete, class: "btn btn-secondary btn-sm" %>
     </td>
 </tr>
-

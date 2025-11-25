@@ -1,19 +1,20 @@
-<%= search_form_for @q, html: {"data-controller": "search", "data-turbo-frame": "table"} do |f| %>
+<%= search_form_for @q, html: {"data-controller": "search", "data-turbo-frame": "table",
+                                "class": "d-flex justify-content-around py-3 px-5 search_form"} do |f| %>
     <span>                                
         <%= f.label :last_name_cont %>
-        <%= f.search_field :last_name_cont, "data-action": "search#submit" %>
+        <%= f.search_field :last_name_cont, "data-action": "search#submit", "class": "mx-2"  %>
     </span>
     <span>    
-        <%= f.label(:gender_eq, "Gender") %>
+        <%= f.label(:gender_eq, "Gender:") %>
         <%= f.select :gender_eq, options_for_select([['both', ''], ['male'], ['female']], :selected => @q.gender_eq),
-                                                    {}, {"data-action": "search#submit"}  %>
+                                                    {}, {"data-action": "search#submit", "class": "mx-2" }  %>
     </span>
     <span>    
         <%= f.label(:birth_date_gt, "Birth date between:") %>
-        <%= f.date_field :birth_date_gteq, "data-action": "search#submit"  %>
+        <%= f.date_field :birth_date_gteq, "data-action": "search#submit", "class": "mx-2"  %>
   
         <%= f.label(:birth_date_lt, "and:") %>
-        <%= f.date_field :birth_date_lt, "data-action": "search#submit"  %>
+        <%= f.date_field :birth_date_lt, "data-action": "search#submit", "class": "mx-2"  %>
     </span>
 
 <% end %>

@@ -1,6 +1,10 @@
 <tr class="doctor">
     <td class="doctor-full-name"><%= doctor.full_name %></td>
-    <td class="patient-btns">
-        <%= link_to "Show this doctor", doctor, data: { turbo: "false" } %>
+    <td class="doctor-appointments">
+        <%= count = doctor.appointments.count
+        count == 0 ? count : (link_to doctor.appointments.count, appointments_path(doctor_id: doctor.id), data: { turbo: "false" }) %>
+    </td>
+    <td class="table-btns">
+        <%= link_to "Show this doctor", doctor, data: { turbo: "false" }, class: "btn btn-secondary btn-sm" %>
     </td>
 </tr>

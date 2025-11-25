@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
+  <div class="form-row">
+    <%= form.label :first_name, class: "form-field" %>
     <%= form.text_field :first_name %>
   </div>
 
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
+  <div class="form-row">
+    <%= form.label :last_name, class: "form-field" %>
     <%= form.text_field :last_name %>
   </div>
 
-  <div>
-    <%= form.label :gender, style: "display: block" %>
-    <%= collection_radio_buttons(:patient, :gender, Patient.genders, :first, :first)%>
+  <div class="form-row">
+    <%= form.label :gender, class: "form-field" %>
+    <%= collection_radio_buttons(:patient, :gender, Patient.genders, :first, :first, options: {}, html_options: { class: "mx-1" } ) %>
   </div>
 
-  <div>
-    <%= form.label :birth_date, style: "display: block" %>
+  <div class="form-row">
+    <%= form.label :birth_date, class: "form-field" %>
     <%= form.date_field :birth_date, :max => Date.today %>
   </div>
 
-  <div>
-    <%= form.label :pesel, style: "display: block" %>
+  <div class="form-row">
+    <%= form.label :pesel, class: "form-field" %>
     <%= form.text_field :pesel %>
   </div>
 
-  <div>
-    <%= form.label :city, style: "display: block" %>
+  <div class="form-row">
+    <%= form.label :city, class: "form-field" %>
     <%= form.text_field :city %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-secondary" %>
   </div>
 <% end %>

@@ -12,27 +12,27 @@
     </div>
   <% end %>
 
-   <div>
-    <%= form.label :date, style: "display: block" %>
+  <div class="form-row">
+    <%= form.label :date, class: "form-field" %>
     <%= form.date_field :date, :min => Date.today %>
   </div>
 
-  <div>
-    <%= form.label :time_slot, style: "display: block" %>
+  <div class="form-row">
+    <%= form.label :time_slot, class: "form-field" %>
     <%= form.select :time_slot, Appointment.time_slots.keys.to_a %>
   </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %> <span>PLN</span>
+  <div class="form-row">
+    <%= form.label :price, class: "form-field" %>
+    <%= form.number_field :price %> <span>&nbsp;PLN</span>
   </div>
 
-  <div>
-    <%= form.label :doctor_id, style: "display: block" %>
+  <div class="form-row">
+    <%= form.label :doctor_id, class: "form-field" %>
     <%= form.select :doctor_id, Doctor.all.collect { |d| [ d.full_name, d.id ] }, :prompt => "Choose doctor" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-secondary" %>
   </div>
 <% end %>

@@ -1,32 +1,34 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Appointments</h1>
+<div id="title-container", class="d-flex align-items-center title">
+  <h1 class="mb-4 ml-5">Appointments</h1>
+</div>
 
 <%= turbo_frame_tag "table" do %>
   <div><%= paginate @appointments %></div>
-  <table>
-    <thead>
-      <tr>
-        <th id="appointment-time" scope="col">
-          <span> Appointment time </span>
-        </th>
-        <th id="appointment-doctor" scope="col">
-          <span>Doctor</span>
-        </th>
-        <th id="appointment-patient" scope="col">
-          <span>Patient</span>
-        </th>
-        <th id="appointment-price" scope="col">
-          <span>Price (in PLN)</span>
-        </th>
-        <th id="appointment-actions" scope="col">
-          <span>Actions</span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: 'index_item', collection: @appointments, as: :appointment %>
-    </tbody>
-  </table>
+  <div id="appointments" class="shadow border-b border-gray-200 bg-light bg-gradient">
+    <table class="table table-striped table-hover rounded rounded-3 overflow-hidden">
+      <thead class="bg-dark-gray text-white align-middle text-center">
+        <tr>
+          <th id="appointment-time" scope="col" class="py-3 px-6">
+            <span> Appointment time </span>
+          </th>
+          <th id="appointment-doctor" scope="col" class="py-3 px-6">
+            <span>Doctor</span>
+          </th>
+          <th id="appointment-patient" scope="col" class="py-3 px-6">
+            <span>Patient</span>
+          </th>
+          <th id="appointment-price" scope="col" class="py-3 px-6">
+            <span>Price (in PLN)</span>
+          </th>
+          <th id="appointment-actions" scope="col" class="py-3 px-6">
+            <span>Actions</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-light-gray align-middle text-center">
+        <%= render partial: 'index_item', collection: @appointments, as: :appointment %>
+      </tbody>
+    </table>
+  </div>
 <% end %>  
  

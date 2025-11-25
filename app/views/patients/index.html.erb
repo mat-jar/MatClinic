@@ -1,44 +1,46 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Patients</h1>
-<%= button_to "New patient", new_patient_path, method: :get %>
+<div id="title-container", class="d-flex align-items-center title">
+  <h1 class="mb-4 ml-5">Patients</h1>
+  <%= button_to "Add new patient", new_patient_path, method: :get, class: "btn btn-secondary btn-lg mx-5 mb-4" %>
+</div>
 
 <%= render partial: 'search' %>
 
 <%= turbo_frame_tag "table" do %>
   <div><%= paginate @patients %></div>
-  <table>
-    <thead>
-      <tr>
-        <th id="patient-name" scope="col">
+  <div id="patients" class="shadow border-b border-gray-200 bg-light bg-gradient">
+    <table class="table table-striped table-hover rounded rounded-3 overflow-hidden">
+      <thead class="bg-dark-gray text-white align-middle text-center">
+        <tr>
+          <th id="patient-name" scope="col" class="py-3 px-6">
+            <span>
+              Patient name
+              <%= sort_link(@q, :last_name, default_order: :asc, class: "btn btn-light btn-sm mx-1") do %>
+                <span></span>
+              <% end %>
+            </span>
+          </th>
+          <th id="patient-gender" scope="col" class="py-3 px-6">
+            <span>Gender</span>
+          </th>
+          <th id="patient-birth-date" scope="col" class="py-3 px-6">
           <span>
-            Patient name
-            <%= sort_link(@q, :last_name, default_order: :asc, class: "btn btn-light btn-sm") do %>
+            Birth date
+            <%= sort_link(@q, :birth_date, default_order: :asc, class: "btn btn-light btn-sm mx-1") do %>
               <span></span>
             <% end %>
           </span>
-        </th>
-        <th id="patient-gender" scope="col">
-          <span>Gender</span>
-        </th>
-        <th id="patient-birth-date" scope="col">
-        <span>
-          Birth date
-          <%= sort_link(@q, :birth_date, default_order: :asc, class: "btn btn-light btn-sm") do %>
-            <span></span>
-          <% end %>
-        </span>
-        </th>
-        <th id="patient-appointments" scope="col">
-            <span>Number of appointments</span>
-        </th>
-        <th id="patient-acctions" scope="col">
-          <span>Actions</span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: 'index_item', collection: @patients, as: :patient %>
-    </tbody>
-  </table>
+          </th>
+          <th id="patient-appointments" scope="col" class="py-3 px-6">
+              <span>Number of appointments</span>
+          </th>
+          <th id="patient-acctions" scope="col" class="py-3 px-6">
+            <span>Actions</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-light-gray align-middle text-center">
+        <%= render partial: 'index_item', collection: @patients, as: :patient %>
+      </tbody>
+    </table>
+  </div>
 <% end %>  

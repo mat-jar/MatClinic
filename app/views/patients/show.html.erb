@@ -3,8 +3,9 @@
 <%= render @patient %>
 
 <div>
-  <%= link_to "Edit this patient", edit_patient_path(@patient) %> |
-  <%= link_to "Back to patients", patients_path %>
-
-  <%= button_to "Destroy this patient", @patient, method: :delete %>
+  <%= link_to "Edit this patient", edit_patient_path(@patient), class: "btn btn-secondary" %> |
+  <%= link_to "Back to patients", patients_path, class: "btn btn-secondary" %>
+  <div class="my-2">
+    <%= button_to "Destroy this patient", @patient, method: :delete, class: "btn btn-secondary" %>
+  </div>
 </div>
