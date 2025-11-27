@@ -2,8 +2,8 @@
 
 ## tl;dr
 
-- Ruby on Rails app hosted on Fly.io
-- https://mat-clinic.fly.dev/
+- Ruby on Rails app
+- https://matclinic.eusz.eu/
 - PostgreSQL, ActiveRecord CRUDs, enum, service objects, custom validation, bootstrap, custom css, Hotwire (Turbo Frames & Stimulus), chart.js, rake task, kaminari, ransack, Rspec
 
 ## About
@@ -13,10 +13,3 @@ MatClinic is a simple app to make appointments in a clinic. It allows to book a 
 The app contains 'Statistics' page with bar chart showing number of patients born in a given year. The chart is made with Stimulus controller and Chart.js. <br />
 
 Patients records can be imported from CSV file using rake task `rake patients:import CSV_FILE=filename.csv` Pesel numbers in the CSV file are parsed into birth date and gender.
-
-## To do in future :)
-
-- More charts with better stylisation
-- Turbo Streams and broadcast
-- Advanced search/filtering subpage
-- and probably some more...
