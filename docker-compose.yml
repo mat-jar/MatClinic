@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 
 services:
   db:
@@ -9,7 +9,8 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - "5433:5432"   # host:container
+      - "5433:5432" # host:container
+    restart: always
   web:
     build: .
     command: bash -c "RAILS_ENV=production SECRET_KEY_BASE=$SECRET_KEY_BASE bundle exec rails server -b 0.0.0.0"
@@ -21,6 +22,7 @@ services:
       DATABASE_URL: postgres://postgres:password@db:5432/postgres
     depends_on:
       - db
+    restart: always
 
 volumes:
   pgdata:
