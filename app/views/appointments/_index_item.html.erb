@@ -5,6 +5,6 @@
     <td class="appointment-details"><%= appointment.price %></td>
     <td class="table-btns">
         <%= edit_appointment_button(appointment, appointment.patient, css_class: "btn-secondary btn-sm") %>
-        <%= button_to "Destroy this appointment", appointment, method: :delete, class: "btn btn-secondary btn-sm" %>
+        <%= button_to "Destroy this appointment", appointment, method: :delete,  data: { turbo: false, confirm: "Are you sure you want to delete this appointment?" }, class: "btn btn-secondary btn-sm" %>
     </td>
 </tr>

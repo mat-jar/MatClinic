@@ -1,5 +1,5 @@
-# Load the Rails application.
-require_relative "application"
+require 'cgi'
+CGI.class_variable_set(:@@accept_charset, nil) unless CGI.class_variable_defined?(:@@accept_charset)
 
-# Initialize the Rails application.
+require_relative 'application'
 Rails.application.initialize!

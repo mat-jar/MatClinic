@@ -1,14 +1,14 @@
 class Patient < ApplicationRecord
     has_many :appointments, dependent: :destroy
     
-    enum gender: { female: 'female', male: 'male'}
-    #before_save :upcase_first_name, :upcase_last_name, :upcase_city
+    enum :gender, {:female=>"female", :male=>"male"}
+    before_save :upcase_first_name, :upcase_last_name, :upcase_city
 
     validates :first_name, :last_name, :gender, :birth_date, :pesel, :city, presence: true
-    validates :birth_date, comparison: { less_than_or_equal_to: Date.today, message: "Birth date cannot be greater than #{Date.today} (today)" }
-    validates :pesel, uniqueness: true
-    validates :pesel, format: { with: /\A\d{11}\z/, message: "must consist of eleven digits" }
-    validates :first_name, :last_name, :city, format: { with: /\A\D*\z/, message: "cannot contain any digits" }
+    validates :birth_date, comparison: { less_than_or_equal_to: Date.today, message: "Birth date cannot be greater than #{Date.today} (today)" }, allow_blank: true
+    validates :pesel, uniqueness: true, allow_blank: true
+    validates :pesel, format: { with: /\A\d{11}\z/, message: "must consist of eleven digits" }, allow_blank: true
+    validates :first_name, :last_name, :city, format: { with: /\A\D*\z/, message: "cannot contain any digits" }, allow_blank: true
 
     def self.ransackable_attributes(auth_object = nil)
         ["birth_date", "gender", "last_name"]

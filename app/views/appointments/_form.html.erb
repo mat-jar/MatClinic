@@ -1,11 +1,11 @@
-<%= form_with(model: appointment) do |form| %>
+<%= form_with(model: @appointment) do |form| %>
   <%=form.hidden_field :patient_id, :value => @patient_id %>
-  <% if appointment.errors.any? %>
+  <% if @appointment.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
 
       <ul>
-        <% appointment.errors.each do |error| %>
+        <% @appointment.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

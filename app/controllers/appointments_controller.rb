@@ -5,6 +5,8 @@ class AppointmentsController < ApplicationController
   def index
     if patient_id = params[:patient_id]
       @appointments = Patient.find(patient_id).appointments.page(params[:page])
+    elsif doctor_id = params[:doctor_id]
+      @appointments = Doctor.find(doctor_id).appointments.page(params[:page])
     else
       @appointments = Appointment.page(params[:page])
     end
@@ -28,7 +30,9 @@ class AppointmentsController < ApplicationController
   # POST /appointments or /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
-  
+
+    @patient_id = appointment_params[:patient_id]
+
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to appointments_url, notice: "Appointment was successfully created." }
@@ -64,12 +68,10 @@ class AppointmentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_appointment
       @appointment = Appointment.find(params[:id])
     end
-
-    # Only allow a list of trusted parameters through.
+    
     def appointment_params
       params.require(:appointment).permit(:date, :time_slot, :price, :patient_id, :doctor_id)
     end

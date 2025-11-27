@@ -23,6 +23,6 @@ RSpec.describe Appointment, type: :model do
   end
 
   it "is invalid with date at the weekend" do
-    expect(build(:appointment, date: Date.new(2025, 04, 13))).to be_invalid
+    expect(build(:appointment, date: Date.new(2026, 04, 12))).to be_invalid
   end
 end

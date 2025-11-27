@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_19_001405) do
+ActiveRecord::Schema[7.2].define(version: 2025_11_27_145055) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_19_001405) do
     t.datetime "updated_at", null: false
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
+    t.index ["time_slot", "date", "doctor_id"], name: "appointments_unique_index_for_doctors", unique: true
     t.index ["time_slot", "date", "patient_id"], name: "appointments_unique_index_for_patients", unique: true
   end
 
